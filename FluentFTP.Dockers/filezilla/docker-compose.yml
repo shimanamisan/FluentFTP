@@ -2,12 +2,15 @@ services:
   filezilla:
     build:
       context: .
-      network: host
+      # network: host
+    container_name: filezilla-test-ftp-container
     restart: unless-stopped
     ports:
-      - 0.0.0.0:20:20
-      - 0.0.0.0:21:21
-      - 21100-21110:21100-21199
+      # - 0.0.0.0:8020:20
+      # - 0.0.0.0:8021:21
+      - 8020:20
+      - 8021:21
+      # - 21100-21110:21100-21199
     volumes:
       - ./home:/home/filezilla
       - ./logs:/var/log/filezilla
